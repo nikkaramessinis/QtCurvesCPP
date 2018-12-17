@@ -16,7 +16,12 @@ public:
     enum ShapeType{Astroid,Cycloid,HygensCicloid,HypoCicloid};
     void setBackgroundColor(QColor color){mBackgroundColor=color;}
     QColor backgroundColor() const{return mBackgroundColor;}
-    void setShape(ShapeType shape){mShape=shape;}
+    void setShape(ShapeType shape)
+    {
+        mShape=shape;
+        on_shape_change();
+    }
+
     ShapeType shape() const{return mShape;}
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
@@ -28,7 +33,15 @@ private:
     QColor mBackgroundColor;
     QColor mShapeColor;
     ShapeType mShape;
+    float mIntervalLength;
+    float mScale;
+    int mStepCount;
+    void on_shape_change();
+    QPointF compute(float t);//dispatch function based on mShape's type
     QPointF compute_astroid(float t);
+    QPointF compute_hypocicloid(float t);
+    QPointF compute_huygens(float t);
+    QPointF compute_cycloid(float t);
 
 };
 
