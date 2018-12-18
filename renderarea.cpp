@@ -30,8 +30,11 @@ void RenderArea::on_shape_change(){
         mIntervalLength=2*M_PI;
         mStepCount=256;
         break;
-   // case FutureCurve:2*M
-     //   break;
+    case Line:
+        mScale=50;//line length
+        mIntervalLength=1;
+        mStepCount=128;
+        break;
     default:
         break;
     }
@@ -47,6 +50,10 @@ QPointF RenderArea::compute_cycloid(float t){
                    ,1.5*(t-sin(t))//y
                    );
 }
+QPointF RenderArea::compute_line(float t){
+ return QPointF(1-t,1-t);
+}
+
 QPointF RenderArea::compute_huygens(float t){
  return QPointF(4*(3*cos(t)-cos(3*t)),4*(3*sin(t)-sin(3*t)));
 }
@@ -79,6 +86,9 @@ QPointF RenderArea::compute(float t)
     case HypoCicloid:
         return compute_hypocicloid(t);
         break;
+    case Line:
+        return compute_line(t);
+        break;
     default:
         break;
 
@@ -87,6 +97,7 @@ return QPointF(0,0);
 
 }
 void RenderArea::paintEvent(QPaintEvent *event){
+    Q_UNUSED(event);
    QPainter painter(this);
 
    painter.setRenderHint(QPainter::Antialiasing,true);
@@ -112,14 +123,19 @@ void RenderArea::paintEvent(QPaintEvent *event){
 
    //drawing area
    painter.drawRect(this->rect());
-   QPoint center=this->rect().center();
 
+   QPoint center=this->rect().center();
+   QPointF prevPoint=compute(0);
+   QPoint prevPixel;
+   prevPixel.setX(prevPoint.x()*mScale+center.x());
+   prevPixel.setY(prevPoint.y()*mScale+center.y());
    float step=mIntervalLength/mStepCount;
    for(float t=0;t<mIntervalLength;t+=step){
        QPointF point=compute(t);
        QPoint pixel;
        pixel.setX(point.x()*mScale+center.x());
        pixel.setY(point.y()*mScale+center.y());
-       painter.drawPoint(pixel);
+       painter.drawLine(pixel,prevPixel);
+       prevPixel=pixel;
    }
 }
