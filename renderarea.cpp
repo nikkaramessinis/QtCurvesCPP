@@ -16,6 +16,9 @@ void RenderArea::on_shape_change(){
         mStepCount=256;
         break;
     case Cycloid:
+        mScale=4;
+        mIntervalLength=6*M_PI;
+        mStepCount=128;
         break;
     case HygensCicloid:
         mScale=4;
@@ -23,7 +26,12 @@ void RenderArea::on_shape_change(){
         mStepCount=256;
         break;
     case HypoCicloid:
+        mScale=15;
+        mIntervalLength=2*M_PI;
+        mStepCount=256;
         break;
+   // case FutureCurve:2*M
+     //   break;
     default:
         break;
     }
@@ -32,11 +40,23 @@ void RenderArea::on_shape_change(){
 
 
 }
-QPointF RenderArea::compute_cycloid(float t){}
+QPointF RenderArea::compute_cycloid(float t){
+
+
+    return QPointF(1.5*(1-cos(t))//x
+                   ,1.5*(t-sin(t))//y
+                   );
+}
 QPointF RenderArea::compute_huygens(float t){
  return QPointF(4*(3*cos(t)-cos(3*t)),4*(3*sin(t)-sin(3*t)));
 }
-QPointF RenderArea::compute_hypocicloid(float t){}
+QPointF RenderArea::compute_hypocicloid(float t){
+    return QPointF(
+                1.5*(2*cos(t)+cos(2*t)),//X
+                1.5*(2*sin(t)-sin(2*t))//Y
+                );
+
+}
 QPointF RenderArea::compute_astroid(float t){
     float cos_t=cos(t);
     float sin_t=sin(t);
