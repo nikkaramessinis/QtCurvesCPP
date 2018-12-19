@@ -170,7 +170,7 @@
         <number>512</number>
        </property>
        <property name="singleStep">
-        <number>8</number>
+        <number>1</number>
        </property>
       </widget>
      </item>
