@@ -35,6 +35,11 @@ void RenderArea::on_shape_change(){
         mIntervalLength=2;
         mStepCount=100;
         break;
+    case Circle:
+        mScale=100;//line length
+        mIntervalLength=2*M_PI;
+        mStepCount=128;
+        break;
     default:
         break;
     }
@@ -71,6 +76,12 @@ QPointF RenderArea::compute_astroid(float t){
     float y=2*sin_t*sin_t*sin_t;
     return QPointF(x,y);
 }
+QPointF RenderArea::compute_circle(float t){
+    float x=cos(t);
+    float y=sin(t);
+    return QPointF(x,y);
+}
+
 QPointF RenderArea::compute(float t)
 {
     switch(mShape){
@@ -88,6 +99,9 @@ QPointF RenderArea::compute(float t)
         break;
     case Line:
         return compute_line(t);
+        break;
+    case Circle:
+        return compute_circle(t);
         break;
     default:
         break;

@@ -13,7 +13,7 @@ public:
 
     QSize minimumSizeHint() const   Q_DECL_OVERRIDE;
     QSize sizeHint() const   Q_DECL_OVERRIDE;
-    enum ShapeType{Astroid,Cycloid,HygensCicloid,HypoCicloid,Line};
+    enum ShapeType{Astroid,Cycloid,HygensCicloid,HypoCicloid,Line,Circle};
 
     void setBackgroundColor(QColor color){mBackgroundColor=color;repaint();}
     QColor backgroundColor() const{return mBackgroundColor;}
@@ -21,13 +21,13 @@ public:
     void setShapeColor(QColor linecolor){mShapeColor=linecolor;repaint();}
     QColor shapeColor() const{return mShapeColor;}
 
-    void setScale(float scale){mScale=scale;}
+    void setScale(float scale){mScale=scale;repaint();}
     float scale() const{return mScale;}
 
-    void setInterval(float interval){mIntervalLength=interval;}
+    void setInterval(float interval){mIntervalLength=interval;repaint();}
     float intervalLength() const{return mIntervalLength;}
 
-    void setStepCount(int count){mStepCount=count;}
+    void setStepCount(int count){mStepCount=count;repaint();}
     int stepCount() const{return mStepCount;}
 
     void setShape(ShapeType shape)
@@ -56,6 +56,7 @@ private:
     QPointF compute_huygens(float t);
     QPointF compute_cycloid(float t);
     QPointF compute_line(float t);
+    QPointF compute_circle(float t);
 };
 
 #endif // RENDERAREA_H
