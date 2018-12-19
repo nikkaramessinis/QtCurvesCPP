@@ -14,8 +14,12 @@ public:
     QSize minimumSizeHint() const   Q_DECL_OVERRIDE;
     QSize sizeHint() const   Q_DECL_OVERRIDE;
     enum ShapeType{Astroid,Cycloid,HygensCicloid,HypoCicloid,Line};
-    void setBackgroundColor(QColor color){mBackgroundColor=color;}
+
+    void setBackgroundColor(QColor color){mBackgroundColor=color;repaint();}
     QColor backgroundColor() const{return mBackgroundColor;}
+
+    void setShapeColor(QColor linecolor){mShapeColor=linecolor;repaint();}
+    QColor shapeColor() const{return mShapeColor;}
     void setShape(ShapeType shape)
     {
         mShape=shape;
