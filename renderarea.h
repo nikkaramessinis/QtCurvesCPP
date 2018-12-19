@@ -20,19 +20,21 @@ public:
 
     void setShapeColor(QColor linecolor){mShapeColor=linecolor;repaint();}
     QColor shapeColor() const{return mShapeColor;}
+
+    void setScale(float scale){mScale=scale;}
+    float scale() const{return mScale;}
+
+    void setInterval(float interval){mIntervalLength=interval;}
+    float intervalLength() const{return mIntervalLength;}
+
+    void setStepCount(int count){mStepCount=count;}
+    int stepCount() const{return mStepCount;}
+
     void setShape(ShapeType shape)
     {
         mShape=shape;
         on_shape_change();
     }
-    void setScale(float scale){mScale=scale;repaint();}
-    float scale() const{return mScale;}
-
-    void setInterval(float interval){mIntervalLength=interval;repaint();}
-    float intervalLength() const{return mIntervalLength;}
-
-    void setStepCount(int count){mStepCount=count;repaint();}
-    int stepCount() const{return mStepCount;}
     ShapeType shape() const{return mShape;}
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;

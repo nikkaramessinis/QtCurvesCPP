@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->ui->spinScale->setValue(this->ui->renderArea->scale());
+    this->ui->spinCount->setValue(this->ui->renderArea->stepCount());
+    this->ui->spinInterval->setValue(this->ui->renderArea->intervalLength());
 }
 
 MainWindow::~MainWindow()
@@ -18,7 +20,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::update_ui(){
      this->ui->spinScale->setValue(this->ui->renderArea->scale());
-     this->ui->spinScale->setValue(this->ui->renderArea->intervalLength());
+     this->ui->spinInterval->setValue(this->ui->renderArea->intervalLength());
      this->ui->spinCount->setValue(this->ui->renderArea->stepCount());
 }
 void MainWindow::on_btnAstroid_clicked()

@@ -11,29 +11,29 @@ QSize RenderArea::sizeHint() const {return QSize(400,400);}
 void RenderArea::on_shape_change(){
     switch(mShape){
     case Astroid:
-        mScale=40;
+        mScale=90;
         mIntervalLength=2*M_PI;
         mStepCount=256;
         break;
     case Cycloid:
-        mScale=4;
-        mIntervalLength=6*M_PI;
+        mScale=10;
+        mIntervalLength=4*M_PI;
         mStepCount=128;
         break;
     case HygensCicloid:
-        mScale=4;
+        mScale=40;
         mIntervalLength=4*M_PI;
         mStepCount=256;
         break;
     case HypoCicloid:
-        mScale=15;
+        mScale=40;
         mIntervalLength=2*M_PI;
         mStepCount=256;
         break;
     case Line:
         mScale=50;//line length
-        mIntervalLength=1;
-        mStepCount=128;
+        mIntervalLength=2;
+        mStepCount=100;
         break;
     default:
         break;
