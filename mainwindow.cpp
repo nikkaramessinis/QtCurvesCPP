@@ -97,3 +97,10 @@ void MainWindow::on_btnLineColor_clicked()
 
 
 
+
+void MainWindow::on_btnEllipse_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Ellipse);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
