@@ -193,4 +193,9 @@ void RenderArea::paintEvent(QPaintEvent *event){
        painter.drawLine(pixel,prevPixel);
        prevPixel=pixel;
    }
+   QPointF point=compute(mIntervalLength);
+   QPoint pixel;
+   pixel.setX(point.x()*mScale+center.x());
+   pixel.setY(point.y()*mScale+center.y());
+   painter.drawLine(pixel,prevPixel);
 }
