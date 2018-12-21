@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QColor>
+#include <QPen>
 
 class RenderArea : public QWidget
 {
@@ -15,11 +16,11 @@ public:
     QSize sizeHint() const   Q_DECL_OVERRIDE;
     enum ShapeType{Astroid,Cycloid,HygensCicloid,HypoCicloid,Line,Circle,Ellipse,Fancy,StarFish};
 
-    void setBackgroundColor(QColor color){mBackgroundColor=color;repaint();}
+    void setBackgroundColor(QColor color){mBackgroundColor=color;}
     QColor backgroundColor() const{return mBackgroundColor;}
 
-    void setShapeColor(QColor linecolor){mShapeColor=linecolor;repaint();}
-    QColor shapeColor() const{return mShapeColor;}
+    void setShapeColor(QColor linecolor){mPen.setColor(linecolor);repaint();}
+    QColor shapeColor() const{return mPen.color();}
 
     void setScale(float scale){mScale=scale;repaint();}
     float scale() const{return mScale;}
@@ -44,7 +45,7 @@ public slots:
 
 private:
     QColor mBackgroundColor;
-    QColor mShapeColor;
+    QPen mPen;
     ShapeType mShape;
     float mIntervalLength;
     float mScale;

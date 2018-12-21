@@ -2,8 +2,9 @@
 #include <QPaintEvent>
 #include <iostream>
 #include <QPainter>
-RenderArea::RenderArea(QWidget *parent) :  QWidget(parent),mBackgroundColor(0,0,255),mShapeColor(255,255,255),mShape(Astroid){
-
+RenderArea::RenderArea(QWidget *parent) :  QWidget(parent),mBackgroundColor(0,0,255),mPen(Qt::white),mShape(Astroid){
+mPen.setWidth(2);
+on_shape_change();
 
     }
 QSize RenderArea::minimumSizeHint() const {return QSize(400,400);}
@@ -21,7 +22,7 @@ void RenderArea::on_shape_change(){
         mStepCount=128;
         break;
     case HygensCicloid:
-        mScale=40;
+        mScale=10;
         mIntervalLength=4*M_PI;
         mStepCount=256;
         break;
@@ -174,7 +175,7 @@ void RenderArea::paintEvent(QPaintEvent *event){
 //       break;
 //   }
    painter.setBrush(mBackgroundColor);
-   painter.setPen(mShapeColor);
+   painter.setPen(mPen);
 
    //drawing area
    painter.drawRect(this->rect());
