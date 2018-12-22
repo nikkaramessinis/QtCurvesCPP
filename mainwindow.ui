@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>534</width>
-    <height>360</height>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,27 +55,6 @@
     </item>
     <item row="0" column="1">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QPushButton" name="btnCycloid">
-        <property name="text">
-         <string>Cycloid</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="btnHypo">
-        <property name="text">
-         <string>Hypo Cycloid</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="btnAstroid">
-        <property name="text">
-         <string>Astroid</string>
-        </property>
-       </widget>
-      </item>
       <item row="6" column="0">
        <widget class="QPushButton" name="btnEllipse">
         <property name="text">
@@ -84,50 +63,6 @@
        </widget>
       </item>
       <item row="11" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>StepCount</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinCount">
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="maximum">
-           <number>512</number>
-          </property>
-          <property name="singleStep">
-           <number>1</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="btnLine">
-        <property name="text">
-         <string>Line</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="btnHuygens">
-        <property name="text">
-         <string>Huygens</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_2">
@@ -157,7 +92,28 @@
         </item>
        </layout>
       </item>
-      <item row="10" column="0">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="btnCycloid">
+        <property name="text">
+         <string>Cycloid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="btnHypo">
+        <property name="text">
+         <string>Hypo Cycloid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="btnHuygens">
+        <property name="text">
+         <string>Huygens</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QLabel" name="label">
@@ -197,6 +153,13 @@
         </property>
        </widget>
       </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="btnStarFish">
+        <property name="text">
+         <string>StarFish</string>
+        </property>
+       </widget>
+      </item>
       <item row="7" column="0">
        <widget class="QPushButton" name="btnFancy">
         <property name="text">
@@ -204,10 +167,61 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="btnStarFish">
+      <item row="9" column="0">
+       <widget class="QPushButton" name="btnCloud">
         <property name="text">
-         <string>StarFish</string>
+         <string>Cloud</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="btnLine">
+        <property name="text">
+         <string>Line</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="btnAstroid">
+        <property name="text">
+         <string>Astroid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>StepCount</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinCount">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="maximum">
+           <number>512</number>
+          </property>
+          <property name="singleStep">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="10" column="0">
+       <widget class="QPushButton" name="btnSun">
+        <property name="text">
+         <string>Sun</string>
         </property>
        </widget>
       </item>

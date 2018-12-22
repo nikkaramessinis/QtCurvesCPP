@@ -55,6 +55,16 @@ void RenderArea::on_shape_change(){
         mScale=25;//line length
         mIntervalLength=6*M_PI;
         mStepCount=256;
+        break;
+    case Cloud:mScale=10;
+        mIntervalLength=28*M_PI;
+        mStepCount=128;
+        break;
+    case Sun:
+        mScale=10;
+        mIntervalLength=28*M_PI;
+        mStepCount=128;
+        break;
     default:
         break;
     }
@@ -115,6 +125,27 @@ QPointF RenderArea::compute_starfish(float t){
     int d=5;
     return QPointF((R-r)*cos(t)+d*cos(t*(R-r)/r),(R-r)*sin(t)-d*sin(t*(R-r)/r));
 }
+QPointF RenderArea::compute_skythings(float t,float sign){
+    float a=14;
+    float b=1;
+    float x=(a+b)*cos(t*b/a)-sign*b*cos(t*(a+b)/a);
+    float y=(a+b)*sin(t*b/a)-b*sin(t*(a+b)/a);
+    return QPointF(x,y);
+}
+
+
+QPointF RenderArea::compute_sun(float t){
+    return compute_skythings(t,-1);
+}
+
+
+
+QPointF RenderArea::compute_cloud(float t){
+    return compute_skythings(t,1);
+}
+
+
+
 
 QPointF RenderArea::compute(float t)
 {
@@ -145,6 +176,12 @@ QPointF RenderArea::compute(float t)
         break;
     case StarFish:
         return compute_starfish(t);
+        break;
+    case Cloud:
+        return compute_cloud(t);
+        break;
+    case Sun:
+        return compute_sun(t);
     default:
         break;
 

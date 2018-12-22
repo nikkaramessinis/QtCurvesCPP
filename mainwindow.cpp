@@ -118,3 +118,18 @@ void MainWindow::on_btnStarFish_clicked()
     this->ui->renderArea->repaint();
     update_ui();
 }
+
+void MainWindow::on_btnCloud_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Cloud);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+void MainWindow::on_btnSun_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Sun);
+    this->ui->renderArea->repaint();
+    update_ui();
+
+}
